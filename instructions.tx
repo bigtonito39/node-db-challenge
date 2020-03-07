@@ -24,3 +24,5 @@ to use these created database:
 1. make sure you install npm express helmet 
 2. make sure that in the package.json file you are including the next set ups: "server": "nodemon index.js","start": "node index.js"
 3. once you get db stuff ready.. time to move on to server side! so, remember your routers, index.js file, CRUD operation endpoints, 
+
+            
