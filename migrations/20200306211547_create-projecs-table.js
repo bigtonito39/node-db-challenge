@@ -48,7 +48,7 @@ exports.up =  async function(knex) {
   
   exports.down = async function(knex) {
     //this has to be located int he oposite site of how is on top
-      
+      await knex.schema.dropTableIfExists("projects_resources")
       await knex.schema.dropTableIfExists("task")
       await knex.schema.dropTableIfExists("resource")
       await knex.schema.dropTableIfExists("projects")
