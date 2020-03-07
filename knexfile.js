@@ -6,7 +6,7 @@ module.exports = {
     useNullAsDefault: true, // A flag required for SQLite
     client: 'sqlite3',
     connection: {
-      filename: './data/projects.db3'
+      filename: './data/project.db3'
     }
   },
 
