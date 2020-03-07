@@ -18,7 +18,7 @@ exports.up =  async function(knex) {
       table.boolean("completed").defaultTo(false)
       //here, i will be relating a task to a single project, as task only can
       //belong to a single project
-      table.integer("project_id")
+      table.integer("project_id").notNull()
       .references("id")
       .inTable("projects")
        //add the folliwing line so that a project gets deleted, the task does as well
@@ -28,6 +28,22 @@ exports.up =  async function(knex) {
   
     })
    //past this point i will be creating tables to relate Foreign keys
+ await knex.schema.createTable("projects_resources", (table) => {
+     table.increments("id")
+     table.integer("project_id").notNull()
+     .references("id")
+     .inTable("projects")
+     .onUpdate("CASCADE")
+     .onDelete("CASCADE")
+
+     table.integer("resource_id").notNull()
+     .references("id")
+     .inTable("projects")
+     .onUpdate("CASCADE")
+     .onDelete("CASCADE")
+
+ })
+
   };
   
   exports.down = async function(knex) {
