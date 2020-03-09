@@ -1,10 +1,12 @@
 exports.up =  async function(knex) {
     await knex.schema.createTable("projects", (table) =>{
+      //1 project has many resources and task - so one to many relationship here
         table.increments("id")
         table.text("name").notNull()
         table.text("description")
         table.boolean("completed").defaultTo(false)
     })
+    //many to many relationship here, as as projects can have multiple resources, but the same resource can be used in multiple projects
     await knex.schema.createTable("resource", (table) => {
         table.increments("id")
         table.text("name").notNull()
@@ -17,17 +19,19 @@ exports.up =  async function(knex) {
       table.text("notes")
       table.boolean("completed").defaultTo(false)
       //here, i will be relating a task to a single project, as task only can
-      //belong to a single project
-      table.integer("project_id").notNull()
+      //belong to a single project (fore)
+      table.integer("project_id")
+      .notNull()
+      .unsigned() // get in the habbit in adding usigned() to foreigh keys as some sql programs might require it
       .references("id")
       .inTable("projects")
-       //add the folliwing line so that a project gets deleted, the task does as well
+       //add the folliwing line so that a project gets deleted the task does as well
       .onUpdate("CASCADE") 
       .onDelete("CASCADE") 
 
   
     })
-   //past this point i will be creating tables to relate Foreign keys
+   //past this point i will be creating tables to relate Foreign keys between projects and resources as they have a many to many relationship.
  await knex.schema.createTable("projects_resources", (table) => {
      table.increments("id")
      table.integer("project_id").notNull()
