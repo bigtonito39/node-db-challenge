@@ -1,0 +1,32 @@
+1-step : npm init -y
+2 step : npm add knex sqlite3
+3 step: npm install -g knex  (this is to install globally in order to be able to use the knex command which allows to use migrate and seed)
+4 step: knex init  (this will build a knexfile.js)
+5 step: in that file we only will keep development, and add the pool setup if you are using foreign key
+6 step: on the knexfile under client paste this line:  useNullAsDefault: true, // A flag required for SQLite
+7 step: run knex migrate:make create-cars-table  (this will create migrate folder with first file in it)
+8 step: once you had typed your table do knex migrate:latest to create database
+9 step: if you didnt like an update(ONLY IF YOU DECIDED THATS NOT WHAT YOU WANTED TO DO, and want to reverse a chance) --Run knex migrate:rollback
+
+(if you git pull request a project that was already started on another computer, or from another user, in order to use knex, make sure npm install and npm install -g knex as well )
+
+----------------------------
+Creating seeds:
+1 step make sure that db is up to date by running knex migrate:latest
+2 step generate a seed file knex seed:make 01-cars  (put a number in front to keep order)
+3 setup the seed
+4. run seed: knex seed:run
+
+-------------------------------
+confif.js file:
+once you have created your db, migrations, knexfile and seeds .. make sure to create a config.js file under data as well
+
+--------------------------------
+to use these created database:
+1. make sure you install npm express helmet 
+2. make sure that in the package.json file you are including the next set ups: "server": "nodemon index.js","start": "node index.js"
+3. once you get db stuff ready.. time to move on to server side! so, remember your routers, index.js file, CRUD operation endpoints, 
+
+
+
+
