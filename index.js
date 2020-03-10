@@ -3,6 +3,7 @@ const helmet = require("helmet")
 const welcome = require ("./welcome/welcome")
 const projectRouter = require("./projects/projects-router")
 const resourceRouter = require("./resources/resource-router")
+const taskRouter = require("./tasks/tasks-router")
 
 
 const server = express()
@@ -14,6 +15,7 @@ server.use(express.json())
 server.use("/", welcome)
 server.use("/projects", projectRouter)
 server.use("/resources", resourceRouter)
+server.use("/tasks",taskRouter )
 
 server.use((err, req, res, next) => {
     res.status(500).json({
