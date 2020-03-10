@@ -17,6 +17,7 @@ The Minimum Viable Product must be completed in three hours.
 Follow these steps to set up and work on your project:
 
 - [ ] Create a forked copy of this project.
+
 - [ ] Add your _Team Lead_ as collaborator on Github.
 - [ ] Clone your forked version of the Repository.
 - [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
@@ -40,11 +41,20 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+Relational Databases store data and organize them in rows and columns, much like spreadsheets. SQL, on the other hand, is a language optimized for the sole purpose of querying data. So, if we had a Database Management System, we would use SQL to query data held in a relational database.
+
+
 - [ ] Why do tables need a `primary key`?
+
+Because we need a way of uniquely identifying a specific row in a table.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+foreign key
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+
+An intermediary table
 
 ## Minimum Viable Product
 
