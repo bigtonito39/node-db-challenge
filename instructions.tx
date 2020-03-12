@@ -1,5 +1,5 @@
 1-step : npm init -y (this creates the package.json)
-2 step : npm add knex sqlite3
+2 step : npm add knex sqlite3 nodemon
 3 step: npm install -g knex  (this is to install globally in order to be able to use the knex command which allows to use migrate and seed)
 4 step: knex init  (this will build a knexfile.js)
 5 step: in that file we only will keep development, and add the pool setup if you are using foreign key
